@@ -12,7 +12,4 @@ class App extends React.Component {
   }
 }
 
-// stateless component sample
-// const App = () => <h1>hello with const!</h1>
-
 export default App
