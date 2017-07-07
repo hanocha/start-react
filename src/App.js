@@ -4,7 +4,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>hello with brackets!</h1>
+        <h1>{this.props.txt}</h1>
         <b>bold text</b>
       </div>
     )
