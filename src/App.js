@@ -18,7 +18,15 @@ class App extends React.Component {
     return (
       <div>
         <h1>{this.state.text}</h1>
-        <Widget update={this.update.bind(this)} />
+        { /* <Widget update={this.update.bind(this)} /> */ }
+        <Widget update={
+            (e) => {
+              this.setState({
+                text: e.target.value,
+              })
+            }
+          } 
+        />
       </div>
     )
   }
