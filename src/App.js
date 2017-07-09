@@ -15,24 +15,24 @@ class App extends React.Component {
   }
 
   render() {
-    let txt = this.props.txt
     return (
       <div>
         <h1>{this.state.text}</h1>
-        <b>bold text</b>
-        <input type="text" onChange={this.update.bind(this)} />
+        { /* <Widget update={this.update.bind(this)} /> */ }
+        <Widget update={
+            (e) => {
+              this.setState({
+                text: e.target.value,
+              })
+            }
+          } 
+        />
       </div>
     )
   }
 }
 
-App.propTypes = {
-  txt: React.PropTypes.string,
-  cat: React.PropTypes.number.isRequired,
-}
-
-App.defaultProps = {
-  txt: "this is the default text",
-}
+const Widget = (props) => 
+  <input type="text" onChange={props.update} />
 
 export default App
