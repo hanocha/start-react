@@ -9,7 +9,11 @@ class App extends React.Component {
 const Title = (props) => <h1>Title: {props.text}</h1>
 
 Title.propTypes = {
-  text: React.PropTypes.string.required
+  text(props, propName, component) {
+    if(!(propName in props)) {
+      return new Error(`missing prop: ${propName}`)
+    }
+  }
 }
 
 export default App
