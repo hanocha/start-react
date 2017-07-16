@@ -2,15 +2,17 @@ import React from 'react'
 
 class App extends React.Component {
   render() {
-    return <Button>I <Heart /> React</Button>
+    return <Title text='tesT'/>
   }
 }
 
-const Button = (props) => <button>{props.children}</button> 
+const Title = (props) => <h1>Title: {props.text}</h1>
 
-class Heart extends React.Component {
-  render() {
-    return <span>&hearts;</span>
+Title.propTypes = {
+  text: function(props, propName, component) {
+    if(!(propName in props)) {
+      return new Error(`missing prop: ${propName}`)
+    }
   }
 }
 
